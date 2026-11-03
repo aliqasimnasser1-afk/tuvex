@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" width="560" height="200">
+  <style>
+    .word { font: 700 92px "Sora", "Segoe UI", "Helvetica Neue", Arial, sans-serif; letter-spacing: -2px; fill: url(#bg); }
+    .tag { font: 500 17px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #8a85a8; letter-spacing: 0.5px; }
+    /* حلقة 4 ثواني: ضوء يقطع، الزر ينقسم، يرجع يلتحم */
+    .float { animation: float 4s ease-in-out infinite; transform-origin: 100px 100px; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-5px) rotate(-2deg); }
+    }
+    .glow { animation: glow 4s ease-in-out infinite; transform-origin: 100px 100px; }
+    @keyframes glow {
+      0%, 100% { opacity: 0.35; transform: scale(0.9); }
+      35% { opacity: 0.8; transform: scale(1.05); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6a3dff"/>
+      <stop offset=".55" stop-color="#b03cf0"/>
+      <stop offset="1" stop-color="#ff4f8b"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".26"/>
+      <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop offset="0" stop-color="#b03cf0" stop-opacity=".7"/>
+      <stop offset=".6" stop-color="#6a3dff" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#6a3dff" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="l"><path d="M0 0H302L198 512H0Z"/></clipPath>
+    <clipPath id="r"><path d="M302 0H512V512H198Z"/></clipPath>
+    <mask id="m"><rect width="512" height="512" fill="#fff"/><path d="M302 0 198 512" stroke="#000" stroke-width="0"><animate attributeName="stroke-width" dur="4s" repeatCount="indefinite" values="0;0;22;22;0;0" keyTimes="0;.22;.3;.72;.84;1"/></path></mask>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#2a0a5e" flood-opacity=".35"/></filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+
+  <circle class="glow" cx="100" cy="100" r="98" fill="url(#halo)"/>
+
+  <g class="float">
+    <svg x="22" y="22" width="156" height="156" viewBox="0 0 512 512" overflow="visible">
+      <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+      <rect width="512" height="512" rx="116" fill="url(#shine)"/>
+      <g filter="url(#sh)">
+        <g mask="url(#m)" fill="#fff" stroke="#fff" stroke-width="40" stroke-linejoin="round">
+          <path clip-path="url(#l)" d="M168 150V362L344 256Z"/>
+          <path clip-path="url(#r)" d="M168 150V362L344 256Z"><animateTransform attributeName="transform" type="translate" dur="4s" repeatCount="indefinite" values="0 0;0 0;14 -10;14 -10;0 0;0 0" keyTimes="0;.22;.32;.72;.86;1"/></path>
+        </g>
+      </g>
+      <g opacity="0">
+        <animate attributeName="opacity" dur="4s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;.12;.17;.27;1"/>
+        <animateTransform attributeName="transform" type="translate" dur="4s" repeatCount="indefinite" values="40 -200;40 -200;-40 200;-40 200" keyTimes="0;.12;.27;1"/>
+        <path d="M302 0 198 512" stroke="#fff" stroke-width="16" stroke-linecap="round" filter="url(#soft)" opacity=".8"/>
+        <path d="M302 0 198 512" stroke="url(#beam)" stroke-width="6" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </g>
+
+  <text class="word" x="210" y="122">Tuvex</text>
+  <text class="tag" x="214" y="158">Trim · Split · Compress — in your browser</text>
+</svg>
