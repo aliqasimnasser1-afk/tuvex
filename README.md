@@ -14,6 +14,16 @@
 
 ---
 
+## شاهد الفيديو
+
+<div align="center">
+
+<a href="https://aliqasimnasser1-afk.github.io/tuvex/assets/promo/tuvex_promo.mp4"><img src="assets/promo/poster.jpg" alt="فيديو Tuvex الترويجي" width="720"></a>
+
+**[▶️ شغّل الفيديو](https://aliqasimnasser1-afk.github.io/tuvex/assets/promo/tuvex_promo.mp4)** · 54 ثانية
+
+</div>
+
 ## المميزات
 
 | | الميزة | التفاصيل |
